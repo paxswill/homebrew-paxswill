@@ -5,7 +5,7 @@ I've worked on that were rejected or are otherwise inappropriate for the
 main repository.
 [main-homebrew]: https://github.com/mxcl/homebrew
 
-#Usage
+##Usage
 Tap this repository with `brew tap paxswill/paxswill`, then install any of
 the formulas listed above. Ex:
 
