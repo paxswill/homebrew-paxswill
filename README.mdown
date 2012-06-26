@@ -1,0 +1,5 @@
+#Personal Homebrew Formulas
+
+This is just a small collection of [Homebrew](main-homebrew) formulas that
+I've worked on that were rejected or are otherwise inappropriate for the
+main repository.
