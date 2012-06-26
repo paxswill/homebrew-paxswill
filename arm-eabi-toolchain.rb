@@ -35,6 +35,10 @@ class ArmEabiToolchain < Formula
   # Don't strip compilers
   skip_clean :all
 
+  fails_with :clang do
+    cause "GCC requires a version of GCC to build (even LLVM-GCC)"
+  end
+
   def install
     # For the same reasons as the GCC formula, we unset LD.
     ENV.delete 'LD'
