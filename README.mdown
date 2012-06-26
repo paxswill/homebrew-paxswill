@@ -1,5 +1,15 @@
 #Personal Homebrew Formulas
 
-This is just a small collection of [Homebrew](main-homebrew) formulas that
+This is just a small collection of [Homebrew][main-homebrew] formulas that
 I've worked on that were rejected or are otherwise inappropriate for the
 main repository.
+[main-homebrew]: https://github.com/mxcl/homebrew
+
+#Usage
+Tap this repository with `brew tap paxswill/paxswill`, then install any of
+the formulas listed above. Ex:
+
+    $ brew tap paxswill/paxswill
+    ...
+    $ brew install arm-eabi-toolchain 
+    ...
