@@ -35,11 +35,9 @@ class ArmEabiToolchain < Formula
   # Don't strip compilers
   skip_clean :all
 
-  fails_with :clang do
-    cause "GCC requires a version of GCC to build (even LLVM-GCC)"
-  end
-
   def install
+    # GCC fails with Clang
+    ENV.llvm
     # For the same reasons as the GCC formula, we unset LD.
     ENV.delete 'LD'
     # We can't use _any_ fancy compiler options as they interfere with gcc.
@@ -55,15 +53,15 @@ class ArmEabiToolchain < Formula
     ENV.set_cflags "-Os -w -pipe"
 
     # GCC doesn't set up an alias for cc
-    mkdir_p "#{prefix}/toolchain/bin"
-    ln_s "arm-none-eabi-gcc", "#{prefix}/toolchain/bin/arm-none-eabi-cc"
+    mkdir_p bin
+    ln_s "arm-none-eabi-gcc", "#{bin}/arm-none-eabi-cc"
     # The Makefile tries, but fails to do this properly
-    ENV.prepend 'PATH', "#{prefix}/toolchain/bin", ':'
+    ENV.prepend 'PATH', bin, ':'
 
     # This Makefile handles parallelization itself
     ENV.j1
 
-    args = [ "PREFIX=#{prefix}/toolchain" ]
+    args = [ "PREFIX=#{prefix}" ]
     tarballs = [ CodeSourcerySource ]
     if ARGV.include? '--match-cs'
       args << 'MATCH_CS=1'
@@ -85,8 +83,5 @@ class ArmEabiToolchain < Formula
     end
 
     system 'make', 'install-cross', *args
-
-    ln_s prefix+'toolchain/bin', prefix+'bin'
-    ln_s prefix+'toolchain/share', prefix+'share'
   end
 end
