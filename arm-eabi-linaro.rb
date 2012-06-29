@@ -79,7 +79,7 @@ class ArmEabiLinaro < Formula
     args = [
       "--prefix=#{prefix}",
       #"--with-sysroot=#{prefix}",
-      "--program-prefix=#{target}-linaro-",
+      "--program-prefix=arm-eabi-linaro-",
       "--target=#{target}",
       "--disable-nls",
       "--enable-interwork",
