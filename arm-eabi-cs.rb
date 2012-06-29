@@ -13,7 +13,7 @@ class CodeSourceryBinaries < Formula
   md5 '2f2d73429ce70dfb848d7b44b3d24d3f'
 end
 
-class ArmEabiEmbedded < Formula
+class ArmEabiCs < Formula
   head 'git://github.com/jsnyder/arm-eabi-toolchain.git'
   url 'https://github.com/jsnyder/arm-eabi-toolchain/tarball/v2011.09-69'
   homepage 'https://github.com/jsnyder/arm-eabi-toolchain'
