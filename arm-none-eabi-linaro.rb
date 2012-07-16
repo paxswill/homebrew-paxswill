@@ -21,13 +21,8 @@ end
 
 class ArmNoneEabiLinaro < Formula
   homepage 'https://launchpad.net/gcc-linaro'
-  if ARGV.include? '--with-gcc46'
-    url 'https://launchpad.net/gcc-linaro/4.6/4.6-2012.06/+download/gcc-linaro-4.6-2012.06.tar.bz2'
-    md5 '5104039954c65904648e62ee7a20ba1f'
-  else
-    url 'https://launchpad.net/gcc-linaro/4.7/4.7-2012.06/+download/gcc-linaro-4.7-2012.06.tar.bz2'
-    md5 'd82f23f7feaad1721932481fe6fbc99c'
-  end
+  url 'https://launchpad.net/gcc-linaro/4.7/4.7-2012.06/+download/gcc-linaro-4.7-2012.06.tar.bz2'
+  md5 'd82f23f7feaad1721932481fe6fbc99c'
   version '2012.06'
   
   depends_on 'gmp'
@@ -35,12 +30,6 @@ class ArmNoneEabiLinaro < Formula
   depends_on 'libmpc'
   depends_on 'ppl'
   depends_on 'cloog'
-
-  def options
-    [
-      ['--with-gcc46', "Use GCC 4.6 instead of GCC 4.7"],
-    ]
-  end
 
   def install
     # Define the target triple
