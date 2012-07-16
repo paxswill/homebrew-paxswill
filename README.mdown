@@ -11,5 +11,5 @@ the formulas listed above. Ex:
 
     $ brew tap paxswill/paxswill
     ...
-    $ brew install arm-eabi-toolchain 
+    $ brew install mspdebug 
     ...
