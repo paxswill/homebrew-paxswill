@@ -19,7 +19,7 @@ class LinaroGdb < Formula
   md5 'f18fb5745da8bf3576f83971201acf12'
 end
 
-class ArmEabiLinaro < Formula
+class ArmNoneEabiLinaro < Formula
   homepage 'https://launchpad.net/gcc-linaro'
   if ARGV.include? '--with-gcc46'
     url 'https://launchpad.net/gcc-linaro/4.6/4.6-2012.06/+download/gcc-linaro-4.6-2012.06.tar.bz2'
