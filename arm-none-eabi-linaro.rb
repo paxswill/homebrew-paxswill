@@ -43,6 +43,7 @@ class ArmNoneEabiLinaro < Formula
   end
 
   def install
+    # Define the target triple
     target = "arm-none-eabi"
     # Undefine LD, gcc expects that this will not be set
     ENV.delete 'LD'
@@ -76,10 +77,13 @@ class ArmNoneEabiLinaro < Formula
       end
     end
 
+    cross_prefix = prefix + target
     args = [
-      "--prefix=#{prefix}",
+      "--prefix=#{cross_prefix}",
+      "--bindir=#{bin}",
+      "--datarootdir=#{share}",
       #"--with-sysroot=#{prefix}",
-      "--program-prefix=arm-eabi-linaro-",
+      "--program-prefix=#{target}-linaro-",
       "--target=#{target}",
       "--disable-nls",
       "--enable-interwork",
