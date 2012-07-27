@@ -9,7 +9,7 @@ end
 
 class Mspdebug < Formula
   homepage 'http://mspdebug.sourceforge.net/index.html'
-  url 'http://sourceforge.net/projects/mspdebug/files/mspdebug-0.19.tar.gz/download'
+  url 'http://sourceforge.net/projects/mspdebug/files/mspdebug-0.19.tar.gz'
   sha1 '329ad2c4cd9496dc7d24fccd59895c8d68e2bc9a'
   head 'git://mspdebug.git.sourceforge.net/gitroot/mspdebug/mspdebug'
 
@@ -19,8 +19,8 @@ class Mspdebug < Formula
     # Just a Makefile
     args = [
       "PREFIX=#{prefix}",
-      "CFLAGS=-I#{HOMEBREW_PREFIX + 'include'}",
-      "LDFLAGS=-L#{HOMEBREW_PREFIX + 'lib'}",
+      "CFLAGS=-I#{HOMEBREW_PREFIX}/include",
+      "LDFLAGS=-L#{HOMEBREW_PREFIX}/lib",
       "install"
     ]
     system "make", *args
