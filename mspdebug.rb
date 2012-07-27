@@ -13,7 +13,7 @@ class Mspdebug < Formula
   sha1 '329ad2c4cd9496dc7d24fccd59895c8d68e2bc9a'
   head 'git://mspdebug.git.sourceforge.net/gitroot/mspdebug/mspdebug'
 
-  depends_on 'libusb'
+  depends_on 'libusb-compat'
 
   def install
     # Just a Makefile
