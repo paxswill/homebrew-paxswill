@@ -43,4 +43,8 @@ class Mspdebug < Formula
       If you have done this before, there is no need to do it again.
       EOS
   end
+
+  def test
+    system "mspdebug", "--help"
+  end
 end
