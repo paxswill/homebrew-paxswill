@@ -17,10 +17,16 @@ class Mspdebug < Formula
 
   def install
     # Just a Makefile
-    system "make", "PREFIX=#{prefix}", "install"
-    Msp430Kext.new.brew do |brewed|
+    args = [
+      "PREFIX=#{prefix}",
+      "CFLAGS=-I#{HOMEBREW_PREFIX + 'include'}",
+      "LDFLAGS=-L#{HOMEBREW_PREFIX + 'lib'}",
+      "install"
+    ]
+    system "make", *args
+    # Move the dummy kext into the prefix
+    Msp430Kext.new.brew do
       Dir.chdir '..'
-      puts Dir.pwd
       mv "ez430rf2500.kext", "#{prefix}/"
     end
   end
