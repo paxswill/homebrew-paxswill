@@ -27,9 +27,9 @@ end
 
 class ArmNoneEabiLinaro < Formula
   homepage 'https://launchpad.net/gcc-linaro'
-  url 'https://launchpad.net/gcc-linaro/4.7/4.7-2012.06/+download/gcc-linaro-4.7-2012.06.tar.bz2'
-  md5 'd82f23f7feaad1721932481fe6fbc99c'
-  version '2012.06'
+  url 'https://launchpad.net/gcc-linaro/4.7/4.7-2012.08/+download/gcc-linaro-4.7-2012.08.tar.bz2'
+  md5 '21c3f3e8179722b00268580ffe487545'
+  version '2012.08'
   
   depends_on 'gmp'
   depends_on 'mpfr'
