@@ -19,6 +19,12 @@ class LinaroGdb < Formula
   md5 'f18fb5745da8bf3576f83971201acf12'
 end
 
+class OldPpl < Formula
+  homepage 'http://bugseng.com/products/ppl/'
+  url 'http://bugseng.com/products/ppl/download/ftp/releases/0.11.2/ppl-0.11.2.tar.bz2'
+  md5 'c24429e6c3bc97d45976a63f40f489a1'
+end
+
 class ArmNoneEabiLinaro < Formula
   homepage 'https://launchpad.net/gcc-linaro'
   url 'https://launchpad.net/gcc-linaro/4.7/4.7-2012.06/+download/gcc-linaro-4.7-2012.06.tar.bz2'
@@ -28,7 +34,7 @@ class ArmNoneEabiLinaro < Formula
   depends_on 'gmp'
   depends_on 'mpfr'
   depends_on 'libmpc'
-  depends_on 'ppl'
+  depends_on 'ppl011'
   depends_on 'cloog'
 
   def install
@@ -89,11 +95,12 @@ class ArmNoneEabiLinaro < Formula
       "--with-python=no",
     ]
     # Specify the exact directory where the dependent libs are
-    ['gmp', 'mpfr', 'ppl', 'cloog'].each do |dep|
+    ['gmp', 'mpfr', 'cloog'].each do |dep|
       args << "--with-#{dep}=#{(Formula.factory dep).prefix}"
     end
     args << "--enable-cloog-backend=isl"
     args << "--with-mpc=#{(Formula.factory 'libmpc').prefix}"
+    args << "--with-ppl=#{(Formula.factory 'ppl011').prefix}"
 
     # Some (most?) of these packages prefer to be built in a seperate directory
     mkdir 'build' do
