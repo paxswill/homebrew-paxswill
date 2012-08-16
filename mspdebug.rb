@@ -36,11 +36,18 @@ class Mspdebug < Formula
       To prevent OS X's default USB drivers from capturing the debugging
       interface, you need to install a kernel extension. It has no code, it
       just defines the appropriate manufacturer and product IDs to prevent the
-      system from capturing it.
+      system from capturing it. The following commands will install a copy with
+      the appropriate permissions and force a rebuild of the kext cache.
+
 
         sudo cp -R #{prefix}/ez430rf2500.kext /Library/Extensions
+        sudo chown -R root:wheel /Library/Extensions/ez430rf2500.kext
+        sudo chmod -R 755 /Library/Extensions/ez430rf2500.kext
+        sudo touch /System/Library/Extensions
 
-      If you have done this before, there is no need to do it again.
+      If you have installed this kext before, there should be no need to
+      install it again. More information is available at:
+      http://mspdebug.sourceforge.net/faq.html#rf2500_osx
       EOS
   end
 
