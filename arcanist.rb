@@ -7,7 +7,7 @@ class Arcanist < Formula
 
   def install
     # Instead of copying things piecemeal, I just reclone arcanist in.
-    # This let's `arc upgrade` work (which is also a viloation of Homebrew
+    # This lets `arc upgrade` work (which is also a violation of Homebrew
     # policies).
     system 'git', 'clone', url
     cd 'arcanist/externals/includes' do
